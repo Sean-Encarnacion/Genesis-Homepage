@@ -13,6 +13,8 @@ const Home = () => {
         setIsOpen(!isOpen)
     }
 
+    console.log(homeObjOne)
+
 
   return (
       <>
