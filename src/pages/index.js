@@ -4,6 +4,8 @@ import Sidebar from '../components/Sidebar';
 import HeroSection from '../components/HeroSection';
 import InfoSection from '../components/InfoSection';
 import { homeObjOne, homeObjTwo } from '../components/InfoSection/Data';
+import Feedbacks from '../components/Feedbacks';
+import Footer from '../components/Footer';
 
 
 const Home = () => {
@@ -13,7 +15,7 @@ const Home = () => {
         setIsOpen(!isOpen)
     }
 
-    console.log(homeObjOne)
+    
 
 
   return (
@@ -23,6 +25,10 @@ const Home = () => {
     <HeroSection />
     <InfoSection {...homeObjOne}/>
     <InfoSection {...homeObjTwo}/>
+    <Feedbacks />
+    <Footer />
+ 
+
    
     </>
   );

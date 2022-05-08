@@ -15,7 +15,7 @@ const InfoSection = props => {
                             <Heading lightText={props.lightText}>{props.headline}</Heading>
                             <Subtitle darkText={props.darkText}>{props.description}</Subtitle>
                             <BtnWrap>
-                                <Button to='home'
+                                <Button to='/home'
                                 smooth={true}
                                 duration={500}
                                 spy={true}
