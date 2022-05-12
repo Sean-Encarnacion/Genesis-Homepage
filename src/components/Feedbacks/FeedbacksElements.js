@@ -6,7 +6,7 @@ export const FeedbacksContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #010606;
+    background: #82E0AA;
 
     @media screen and (max-width: 768px){
         height: 1100px;

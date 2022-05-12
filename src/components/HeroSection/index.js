@@ -13,16 +13,14 @@ const HeroSection = () => {
   return (
     <HeroContainer id='home'>
         <HeroBg>
-            <VideoBg autoPlay loop muted src={Video} type='video/mp4' />
+            {/* <VideoBg autoPlay loop muted src={Video} type='video/mp4' /> */}
         </HeroBg>
         <HeroContent>
-            <HeroH1>RELAX AND UNWIND</HeroH1>
+            <HeroH1>WELCOME TO</HeroH1>
             <HeroP>
-            Genesis Farm is just 15 minutes away from tagaytay city so
-            there are endless things to do after checking out or even before
-            checking in with us!!!
+            Genesis Farm
             </HeroP>
-            <HeroBtnWrapper>
+            {/* <HeroBtnWrapper>
                 <Button to='/home' onMouseEnter={onHover} onMouseLeave={onHover}
                 primary='true'
                 dark='true'
@@ -30,7 +28,7 @@ const HeroSection = () => {
                 >
                     Get Started {hover ? <ArrowForward /> : <ArrowRight />}
                 </Button>
-            </HeroBtnWrapper>
+            </HeroBtnWrapper> */}
         </HeroContent>
     </HeroContainer>
   );

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {FaBars} from 'react-icons/fa'
 import {IconContext} from 'react-icons/lib'
 import {animateScroll as scroll} from 'react-scroll';
-import {Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink} from './NavbarElements'
+import {Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavLink, NavBtn, NavBtnLink} from './NavbarElements'
 
 
 const Navbar = ({toggle}) => {
@@ -45,28 +45,41 @@ const Navbar = ({toggle}) => {
                 <FaBars />
             </MobileIcon>
             <NavMenu>
+            <NavItem>
+                    <NavLinks to="home"
+                    smooth={true} duration={500} spy={true} exact='true' offset={-80}
+                    >Home</NavLinks>
+                </NavItem>
                 <NavItem>
                     <NavLinks to="services"
                     smooth={true} duration={500} spy={true} exact='true' offset={-80}
-                    >Services</NavLinks>
+                    >Activities</NavLinks>
                 </NavItem>
                 <NavItem>
-                    <NavLinks to="facilities"
+                    <NavLink to="/facility"
                     smooth={true} duration={500} spy={true} exact='true' offset={-80}
-                    >Facilities</NavLinks>
+                    >Facilities</NavLink>
                 </NavItem>
+                
                 <NavItem>
+                    <NavLink type='button' link to="/booking"
+                    smooth={true} duration={500} spy={true} exact='true' offset={-80}
+                    >Book</NavLink>
+                </NavItem>
+                
+                {/* <NavItem>
                     <NavLinks to="feedbacks"
                     smooth={true} duration={500} spy={true} exact='true' offset={-80}
                     >Feedbacks</NavLinks>
-                </NavItem>
+                </NavItem> */}
+                
                 <NavItem>
                     {/* <NavLinks to="/signup">Sign Up</NavLinks> */}
                 </NavItem>
             </NavMenu>
             <NavBtn>
-                <NavBtnLink to="/signin">Sign In</NavBtnLink>
-                <NavBtnLink to="/signup">Sign Up</NavBtnLink>
+                <NavBtnLink to="/signin">Logout</NavBtnLink>
+                {/* <NavBtnLink to="/signup">Sign Up</NavBtnLink> */}
             </NavBtn>
 
         </NavbarContainer>

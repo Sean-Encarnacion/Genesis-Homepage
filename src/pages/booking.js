@@ -1,17 +1,19 @@
 import React from 'react';
+import { useState } from 'react';
 import ScrollToTop from '../components/ScrollToTop';
-import HomePage from '../components/Homepage';
+import Booking from '../components/Booking';
 
 
-const HomepageForm = () => {
+const BookingPage = () => {
   return (
     <> 
       <ScrollToTop />
-      <HomePage />
+      <Booking />
       
       
     </>
   );
 };
 
-export default HomepageForm;
+
+export default BookingPage;

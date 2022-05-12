@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import {Link as LinkR} from 'react-router-dom'
 
 export const Container = styled.div`
     background: #01bf71;
-    min-height: 692px;
+    min-height: 10px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -45,7 +44,7 @@ export const Icon = styled(Link)`
 `;
 
 export const FormContent = styled.div`
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,7 +56,7 @@ export const FormContent = styled.div`
 
 export const Form = styled.form`
     background: #010101;
-    max-width: 400px;
+    max-width: 600px;
     height: auto;
     width: 100%;
     z-index: 1;
@@ -86,9 +85,26 @@ export const FormLabel = styled.label`
     color: #fff;
 `;
 
+export const FormSelect = styled.select`
+    padding: 5px 50px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #000;
+`;
+
 export const FormInput = styled.input`
-    padding: 16px 16px;
-    margin-bottom: 32px;
+    padding: 5px 5px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+`;
+
+export const FormInputBtn = styled.input`
+    padding: 5px 5px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 4px;
 `;
@@ -101,37 +117,8 @@ export const FormButton = styled.button`
     color: #fff;
     font-size: 20px;
     cursor: pointer;
+    margin-bottom: 60px;
 `;
-
-export const NavBtn = styled.nav`
-    display: flex;
-    align-items: center;
-
-    @media screen and (max-width: 768px){
-        display: none;
-    }
-`
-
-export const NavBtnLink = styled(LinkR)`
-    border-radius: 50px;
-    background: #01bf71;
-    white-space: nowrap;
-    margin: 10px;
-    padding: 10px 22px;
-    color: #010606;
-    font-size: 16px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-
-    &:hover{
-        transition: all 0.2s ease-in-out;
-        background: #fff;
-        color: #010606;
-    }
-`
 
 export const Text = styled.span`
     text-align: center;
