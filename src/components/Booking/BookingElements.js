@@ -9,7 +9,7 @@ export const Container = styled.div`
     left: 0;
     right: 0;
     top: 0;
-    z-index: 0;
+    z-index: 100;
     overflow: hidden;
     background: linear-gradient{
         100deg,
@@ -26,7 +26,7 @@ export const FormWrap = styled.div`
 
     @media screen and (max-width: 400px){
         height: 80%;
-    }
+    };
 `;
 
 export const Icon = styled(Link)`
@@ -40,7 +40,7 @@ export const Icon = styled(Link)`
     @media screen and (max-width: 480px){
         margin-left: 16px;
         margin-top: 8px;
-    }
+    };
 `;
 
 export const FormContent = styled.div`
@@ -51,7 +51,7 @@ export const FormContent = styled.div`
 
     @media screen and (max-width: 480px) {
         padding: 10px;
-    }
+    };
 `;
 
 export const Form = styled.form`
@@ -68,7 +68,7 @@ export const Form = styled.form`
 
     @media screen and (max-width: 400px){
         padding: 32px 32px;
-    }
+    };
 `;
 
 export const FormH1 = styled.h1`
