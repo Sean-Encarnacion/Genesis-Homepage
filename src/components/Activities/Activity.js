@@ -1,9 +1,9 @@
 import React from 'react';
 import {Button} from '../ButtonElements';
-import { InfoContainer, InfoWrapper, InfoRow, Column1, Column2, TextWrapper, TopLine, Heading, Subtitle, BtnWrap, ButtonLink, ImgWrap, Img } from './FacilityElements';
+import { InfoContainer, InfoWrapper, InfoRow, Column1, Column2, TextWrapper, TopLine, Heading, Subtitle, BtnWrap, ButtonLink, ImgWrap, Img } from './ActivityElements';
 
 
-const Facility = props => {
+const Activity = props => {
   return (
     <>
         <InfoContainer lightBg={props.lightBg} id={props.id}>
@@ -40,4 +40,4 @@ const Facility = props => {
   )
 }
 
-export default Facility
+export default Activity

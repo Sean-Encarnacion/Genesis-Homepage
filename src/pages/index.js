@@ -12,12 +12,12 @@ const Home = () => {
   return (
       <>
     <HeroSection />
-    <InfoSection {...homeObjOne}/>
+    {/* <InfoSection {...homeObjOne}/>
     <InfoSection {...homeObjTwo}/>
     <InfoSection {...homeObjThree}/>
     <InfoSection {...homeObjFour}/>
-    <InfoSection {...homeObjFive}/>
-    <Feedbacks />
+    <InfoSection {...homeObjFive}/> */}
+    {/* <Feedbacks /> */}
     <Footer />
     {/* <Facilities {...facilityOne}/>
     <Facilities {...facilityTwo}/> */}

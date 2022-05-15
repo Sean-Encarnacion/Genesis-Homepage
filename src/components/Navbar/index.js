@@ -66,6 +66,12 @@ const Navbar = ({toggle}) => {
                     smooth={true} duration={500} spy={true} exact='true' offset={-80}
                     >Book</NavLink>
                 </NavItem>
+
+                <NavItem>
+                    <NavLink type='button' link to="/proof"
+                    smooth={true} duration={500} spy={true} exact='true' offset={-80}
+                    >Proof of Payment</NavLink>
+                </NavItem>
                 
                 {/* <NavItem>
                     <NavLinks to="feedbacks"

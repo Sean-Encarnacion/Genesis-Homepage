@@ -42,7 +42,7 @@ export const homeObjThree = {
     description: 'Enjoy an extraordinary retreat with exclusive offers, perfectly fit for your family and friends.',
     buttonLabel: '',
     imgStart: false,
-    img: require('../../images/svg-1.svg').default,
+    img: require('../../images/svg-1-w.svg').default,
     alt: 'Cot',
     dark: false,
     primary: false,

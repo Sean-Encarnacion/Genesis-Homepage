@@ -1,5 +1,7 @@
-import React from "react";
-import emailjs from "emailjs-com";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Container,
   FormWrap,
@@ -15,21 +17,29 @@ import {
   Text,
 } from "./BookingElements";
 
+
 const Booking = () => {
-  function sendEmail(e) {
+  const form = useRef();
+
+  const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
-      .sendForm("gmail", "template_c0857a4", e.target, "5skgWqC7tKNlBOnk2")
+      .sendForm("service_ez5f6hg", "template_c0857a4", form.current, "5skgWqC7tKNlBOnk2")
       .then(
         (result) => {
           console.log(result.text);
+          console.log("message sent");
         },
         (error) => {
           console.log(error.text);
         }
       );
     e.target.reset();
+    // alert("Reserved Successfully!");
+  }
+  const notify = () => {
+    toast('Reserved Successfully!')
   }
   return (
     <>
@@ -37,7 +47,7 @@ const Booking = () => {
         <FormWrap>
           <Icon to="/">Genesis Farm</Icon>
           <FormContent>
-            <Form action="" method="POST" onSubmit={sendEmail}>
+            <Form ref={form} onSubmit={sendEmail}>
               <FormH1>Reservation Form</FormH1>
               <FormLabel htmlFor="for">First Name</FormLabel>
               <FormInput type="name" name="FN" required />
@@ -58,11 +68,49 @@ const Booking = () => {
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
+                  <option value="3">4</option>
+                  <option value="3">5</option>
+                  <option value="3">6</option>
+                  <option value="3">7</option>
+                  <option value="3">8</option>
+                  <option value="3">9</option>
+                  <option value="3">10</option>
                 </FormSelect>
               </FormLabel>
-              <FormButton name="submit" type="submit">
+
+              <FormLabel htmlFor="for">
+                Tour
+                <FormSelect name="visitor">
+                  <option value="1">Day</option>
+                  <option value="2">Night</option>
+                </FormSelect>
+              </FormLabel>
+
+              <FormLabel htmlFor="for">
+                Facility
+                <FormSelect name="visitor">
+                  <option value="1">Bahay Kubo</option>
+                  <option value="2">Large Tent</option>
+                  <option value="3">Medium Tent</option>
+                  <option value="3">Small Tent</option>
+                </FormSelect>
+              </FormLabel>
+
+              <FormLabel htmlFor="for">
+                Activity
+                <FormSelect name="visitor">
+                  <option value="1">Planting</option>
+                  <option value="2">Trekking</option>
+                  <option value="3">Harvesting</option>
+                  <option value="3">Samgy</option>
+                  <option value="3">Package(999)</option>
+                </FormSelect>
+              </FormLabel>
+              
+              <FormButton name="submit" type="submit" onClick={notify}>
                 Book
               </FormButton>
+              <ToastContainer />
             </Form>
           </FormContent>
         </FormWrap>

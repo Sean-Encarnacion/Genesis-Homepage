@@ -5,10 +5,13 @@ import Home from "./pages";
 import SigninPage from "./pages/signin";
 import SignupPage from "./pages/signup";
 import BookingPage from "./pages/booking";
+import ProofPage from "./pages/proof";
 import FacilityPage from "./pages/facility";
+import ActivityPage from "./pages/activity";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import Activities from "./components/Activities";
+import Activities from "./components/Activities/Activity";
+
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,8 +34,11 @@ function App() {
           <Route exact path="/signup" element={<SignupPage />} />
 
           <Route exact path="/booking" element={<BookingPage />} />
+          <Route exact path="/booking" element={<ProofPage />} />
 
           <Route exact path="/facility" element={<FacilityPage />} />
+
+          <Route exact path="/activity" element={<ActivityPage />} />
         </Routes>
       </Router>
     </>

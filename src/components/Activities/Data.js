@@ -15,7 +15,7 @@
 //     darkText: false
 // };
 
-export const facilityOne = {
+export const activityOne = {
     id: 'facilities',
     lightBg: true,
     lightText: false,
@@ -32,7 +32,7 @@ export const facilityOne = {
     darkText: true
 };
 
-export const facilityTwo = {
+export const activityTwo = {
     id: 'facilities',
     lightBg: false,
     lightText: false,
@@ -49,7 +49,7 @@ export const facilityTwo = {
     darkText: true
 };
 
-export const facilityThree = {
+export const activityThree = {
     id: 'facilities',
     lightBg: true,
     lightText: false,
@@ -66,7 +66,7 @@ export const facilityThree = {
     darkText: true
 };
 
-export const facilityFour = {
+export const activityFour = {
     id: 'facilities',
     lightBg: false,
     lightText: false,
