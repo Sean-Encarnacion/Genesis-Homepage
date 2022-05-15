@@ -65,12 +65,12 @@ const ProofOfPayment = () => {
               <FormLabel htmlFor="for">Reference Number</FormLabel>
               <FormInput type="name" name="RN" required />
               <FormLabel htmlFor="for">Proof</FormLabel>
-              <FormInput type="file" onChange={this.fileSelectedHandler} name="RN" required />
+              <FormInput type="file" onChange={fileSelectedHandler} name="RN" required />
              
 
             
               
-              <FormButton name="submit" type="submit" onClick={this.fileUploadHandled}>
+              <FormButton name="submit" type="submit" onClick={fileUploadHandler}>
                 Upload
               </FormButton>
               <ToastContainer />

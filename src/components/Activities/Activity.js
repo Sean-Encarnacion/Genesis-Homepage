@@ -3,7 +3,8 @@ import {Button} from '../ButtonElements';
 import { InfoContainer, InfoWrapper, InfoRow, Column1, Column2, TextWrapper, TopLine, Heading, Subtitle, BtnWrap, ButtonLink, ImgWrap, Img } from './ActivityElements';
 
 
-const Activity = props => {
+const Activity = (props) => {
+    console.log(props)
   return (
     <>
         <InfoContainer lightBg={props.lightBg} id={props.id}>
