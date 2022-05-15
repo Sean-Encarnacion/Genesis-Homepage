@@ -16,6 +16,7 @@ import {
   FormButton,
   Text,
 } from "./ProofElements";
+import axios from 'axios';
 
 
 const ProofOfPayment = () => {
@@ -41,6 +42,16 @@ const ProofOfPayment = () => {
   const notify = () => {
     toast('Reserved Successfully!')
   }
+
+  const fileSelectedHandler = (event) => {
+    this.setState({
+        selectedFile: event.target.files[0]
+    })
+  }
+  const fileUploadHandler = (event) => {
+    axios.post('');
+}
+
   return (
     <>
       <Container>
@@ -53,12 +64,14 @@ const ProofOfPayment = () => {
               <FormInput type="name" name="Name" required />
               <FormLabel htmlFor="for">Reference Number</FormLabel>
               <FormInput type="name" name="RN" required />
+              <FormLabel htmlFor="for">Proof</FormLabel>
+              <FormInput type="file" onChange={this.fileSelectedHandler} name="RN" required />
              
 
             
               
-              <FormButton name="submit" type="submit" onClick={notify}>
-                Book
+              <FormButton name="submit" type="submit" onClick={this.fileUploadHandled}>
+                Upload
               </FormButton>
               <ToastContainer />
             </Form>

@@ -81,29 +81,29 @@ const Booking = () => {
               <FormLabel htmlFor="for">
                 Tour
                 <FormSelect name="visitor">
-                  <option value="1">Day</option>
-                  <option value="2">Night</option>
+                  <option value="Day">Day</option>
+                  <option value="Night">Night</option>
                 </FormSelect>
               </FormLabel>
 
               <FormLabel htmlFor="for">
                 Facility
                 <FormSelect name="visitor">
-                  <option value="1">Bahay Kubo</option>
-                  <option value="2">Large Tent</option>
-                  <option value="3">Medium Tent</option>
-                  <option value="3">Small Tent</option>
+                  <option value="Bahay Kubo">Bahay Kubo</option>
+                  <option value="Large Tent">Large Tent</option>
+                  <option value="Medium Tent">Medium Tent</option>
+                  <option value="Small Tent">Small Tent</option>
                 </FormSelect>
               </FormLabel>
 
               <FormLabel htmlFor="for">
                 Activity
                 <FormSelect name="visitor">
-                  <option value="1">Planting</option>
-                  <option value="2">Trekking</option>
-                  <option value="3">Harvesting</option>
-                  <option value="3">Samgy</option>
-                  <option value="3">Package(999)</option>
+                  <option value="Planting">Planting</option>
+                  <option value="Trekking">Trekking</option>
+                  <option value="Harvesting">Harvesting</option>
+                  <option value="Samgy">Samgy</option>
+                  <option value="Package(999)">Package(999)</option>
                 </FormSelect>
               </FormLabel>
               

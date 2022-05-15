@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ScrollToTop from '../components/ScrollToTop';
 import Facility from '../components/Facilities/Facility';
 import { facilityOne, facilityTwo, facilityThree, facilityFour } from '../components/Facilities/Data';
-
+import Footer from '../components/Footer';
 
 const FacilityPage = () => {
   return (
@@ -13,7 +13,7 @@ const FacilityPage = () => {
       <Facility {...facilityTwo} />
       <Facility {...facilityThree} />
       <Facility {...facilityFour} />
-      
+      <Footer />
       
     </>
   );
