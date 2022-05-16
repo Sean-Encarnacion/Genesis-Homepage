@@ -25,7 +25,7 @@ export const facilityOne = {
     description: 'Enjoy an extraordinary retreat with exclusive offers, perfectly fit for your family and friends.',
     buttonLabel: '₱1800',
     imgStart: true,
-    img: require('../../images/svg-2.svg').default,
+    img: require('../../images/bahay.jpg'),
     alt: 'Cot',
     dark: false,
     primary: false,

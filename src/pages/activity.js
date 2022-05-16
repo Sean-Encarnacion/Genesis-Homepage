@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import ScrollToTop from '../components/ScrollToTop';
 import Activity from '../components/Activities/Activity';
-import { activityOne, activityTwo, activityThree, activityFour } from '../components/Activities/Data';
+import { activityOne, activityTwo, activityThree, activityFour, activityFive, activitySeven, activitySix, activityEight } from '../components/Activities/Data';
 
 const ActivityPage = (props) => {
   return (
@@ -12,6 +12,10 @@ const ActivityPage = (props) => {
       <Activity {...activityTwo} />
       <Activity {...activityThree} />
       <Activity {...activityFour} />
+      <Activity {...activityFive} />
+      <Activity {...activitySix} />
+      <Activity {...activitySeven} />
+      <Activity {...activityEight} />
       
       
     </>

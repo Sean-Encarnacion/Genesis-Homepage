@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useStyles } from 'react';
 import emailjs from '@emailjs/browser';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +15,12 @@ import {
   FormInputBtn,
   FormButton,
   Text,
+  Button
 } from "./BookingElements";
+import QRCode from 'qrcode';
+import axios from 'axios';
+// import QrReader from 'react-qr-reader';
+// import { Container, Card, Grid, CardContent, makeStyles } from '@material-ui/core';
 
 
 const Booking = () => {
@@ -41,6 +46,66 @@ const Booking = () => {
   const notify = () => {
     toast('Reserved Successfully!')
   }
+
+  const [text, setText] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+ 
+
+  const generateQrCode = async () => {
+    try {
+          const response = await QRCode.toDataURL(text);
+          setImageUrl(response);
+    }catch (error) {
+      console.log(error);
+    }
+  }
+
+  const [input, setInput] = useState({
+    FN: '',
+    LN: '',
+    email: '',
+    phone: '',
+    CID: '',
+    COD: '',
+    visitor: '',
+    img: '',
+    tour: '',
+    facility: '',
+    activity: ''
+  })
+
+  function handleChange(event){
+    const {name, value} = event.target;
+
+    setInput(prevInput => {
+      return {
+        ...prevInput,
+        [name]: value
+      }
+    })
+  }
+ 
+
+  function handleClick(event){
+    event.preventDefault();
+    
+    const newForm = {
+      FN: input.FN,
+      LN: input.LN,
+      email: input.email,
+      phone: input.phone,
+      CID: input.CID,
+      COD: input.COD,
+      visitor: input.visitor,
+      img: input.img,
+      tour: input.tour,
+      facility: input.facility,
+      activity: input.activity
+    }
+
+    axios.post('http://localhost:3001/facility', newForm)
+  }
+
   return (
     <>
       <Container>
@@ -50,21 +115,23 @@ const Booking = () => {
             <Form ref={form} onSubmit={sendEmail}>
               <FormH1>Reservation Form</FormH1>
               <FormLabel htmlFor="for">First Name</FormLabel>
-              <FormInput type="name" name="FN" required />
+              <FormInput type="name" name="FN" value={input.FN} onChange={handleChange} required />
               <FormLabel htmlFor="for">Last Name</FormLabel>
-              <FormInput type="name" name="LN" required />
+              <FormInput type="name" name="LN" value={input.LN} onChange={handleChange} required />
               <FormLabel htmlFor="for">Email</FormLabel>
-              <FormInput type="email" name="email" required />
+              <FormInput type="email" name="email" value={input.email} onChange={handleChange} required />
               <FormLabel htmlFor="for">Contact Number</FormLabel>
-              <FormInput type="name" name="phone" required />
+              <FormInput type="name" name="phone" value={input.phone} onChange={handleChange} required />
               <FormLabel htmlFor="for">Check in Date</FormLabel>
-              <FormInput type="date" name="CID" required />
+              <FormInput type="date" name="CID" value={input.CID} onChange={handleChange} required />
               <FormLabel htmlFor="for">Check out Date</FormLabel>
-              <FormInput type="date" name="COD" required />
+              <FormInput type="date" name="COD" value={input.COD} onChange={handleChange} required />
 
               <FormLabel htmlFor="for">
                 Number of Visitor
-                <FormSelect name="visitor">
+              <FormInput type="name" name="visitor" onChange={(e) => setText(e.target.value)} required />
+                            
+                {/* <FormSelect name="visitor">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -75,12 +142,28 @@ const Booking = () => {
                   <option value="3">8</option>
                   <option value="3">9</option>
                   <option value="3">10</option>
-                </FormSelect>
+                </FormSelect> */}
+                <Button onClick={() => generateQrCode()}>Generate</Button>
+
+                            
+                            <br/>
+                            <br/>
+                         
+                            {imageUrl ? (
+                              <a href={imageUrl} download>
+                                  <img src={imageUrl} alt="img" typeof='img' name="img" value={input.img} onChange={handleChange} />
+                              </a>) : null}
+                            
+                            <br/>
+                            <br/>
+              
+            
               </FormLabel>
+
 
               <FormLabel htmlFor="for">
                 Tour
-                <FormSelect name="visitor">
+                <FormSelect name="tour" value={input.tour} onChange={handleChange} >
                   <option value="Day">Day</option>
                   <option value="Night">Night</option>
                 </FormSelect>
@@ -88,7 +171,7 @@ const Booking = () => {
 
               <FormLabel htmlFor="for">
                 Facility
-                <FormSelect name="visitor">
+                <FormSelect name="facility" value={input.facility} onChange={handleChange} >
                   <option value="Bahay Kubo">Bahay Kubo</option>
                   <option value="Large Tent">Large Tent</option>
                   <option value="Medium Tent">Medium Tent</option>
@@ -98,7 +181,7 @@ const Booking = () => {
 
               <FormLabel htmlFor="for">
                 Activity
-                <FormSelect name="visitor">
+                <FormSelect name="activity" value={input.activity} onChange={handleChange} >
                   <option value="Planting">Planting</option>
                   <option value="Trekking">Trekking</option>
                   <option value="Harvesting">Harvesting</option>
@@ -107,7 +190,7 @@ const Booking = () => {
                 </FormSelect>
               </FormLabel>
               
-              <FormButton name="submit" type="submit" onClick={notify}>
+              <FormButton name="submit" type="submit" onClick={handleClick}>
                 Book
               </FormButton>
               <ToastContainer />

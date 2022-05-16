@@ -26,7 +26,7 @@ const ProofOfPayment = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_ez5f6hg", "template_c0857a4", form.current, "5skgWqC7tKNlBOnk2")
+      .sendForm("service_0agu7fr", "template_us1uy4p", form.current, "ehKV5WmSO1f4PDI9x")
       .then(
         (result) => {
           console.log(result.text);
@@ -43,14 +43,14 @@ const ProofOfPayment = () => {
     toast('Reserved Successfully!')
   }
 
-  const fileSelectedHandler = (event) => {
-    this.setState({
-        selectedFile: event.target.files[0]
-    })
-  }
-  const fileUploadHandler = (event) => {
-    axios.post('');
-}
+//   const fileSelectedHandler = (event) => {
+//     this.setState({
+//         selectedFile: event.target.files[0]
+//     })
+//   }
+//   const fileUploadHandler = (event) => {
+//     axios.post('');
+// }
 
   return (
     <>
@@ -64,13 +64,14 @@ const ProofOfPayment = () => {
               <FormInput type="name" name="Name" required />
               <FormLabel htmlFor="for">Reference Number</FormLabel>
               <FormInput type="name" name="RN" required />
-              <FormLabel htmlFor="for">Proof</FormLabel>
-              <FormInput type="file" onChange={fileSelectedHandler} name="RN" required />
+              <FormLabel htmlFor="for">Proof (Please provide image link) </FormLabel>
+              <FormInput type="name" name="link" required />
+              {/* <FormInput type="file" onChange={fileSelectedHandler} name="link" required /> */}
              
 
             
               
-              <FormButton name="submit" type="submit" onClick={fileUploadHandler}>
+              <FormButton name="submit" type="submit" onClick={notify}>
                 Upload
               </FormButton>
               <ToastContainer />
