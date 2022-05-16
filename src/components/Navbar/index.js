@@ -84,7 +84,10 @@ const Navbar = ({toggle}) => {
                 </NavItem>
             </NavMenu>
             <NavBtn>
-                <NavBtnLink to="/signin">Logout</NavBtnLink>
+                <NavBtnLink to="/" onClick={() => {
+                    localStorage.removeItem('user');
+                    window.location = "http://localhost:3000";
+                }}>Logout</NavBtnLink>
                 {/* <NavBtnLink to="/signup">Sign Up</NavBtnLink> */}
             </NavBtn>
 
