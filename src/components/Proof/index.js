@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,10 +17,13 @@ import {
   Text,
 } from "./ProofElements";
 import axios from 'axios';
+import apiService from '../../features/api/apiService';
 
 
 const ProofOfPayment = () => {
   const form = useRef();
+
+  const [input, setInput] = useState({email: "", referenceNumber: "", proof:""})
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -52,6 +55,18 @@ const ProofOfPayment = () => {
 //     axios.post('');
 // }
 
+const handleChange = e => {
+  setInput({
+    ...input,
+    [e.target.name]: e.target.value
+  })
+}
+
+const handleSend = e => {
+  apiService.registerProofOfPayment(input)
+  notify()
+}
+
   return (
     <>
       <Container>
@@ -60,18 +75,18 @@ const ProofOfPayment = () => {
           <FormContent>
             <Form ref={form} onSubmit={sendEmail}>
               <FormH1>Proof of Payment</FormH1>
-              <FormLabel htmlFor="for">Name</FormLabel>
-              <FormInput type="name" name="Name" required />
+              <FormLabel htmlFor="for">Email</FormLabel>
+              <FormInput type="text" name="email" onChange={handleChange} value={input.email} required />
               <FormLabel htmlFor="for">Reference Number</FormLabel>
-              <FormInput type="name" name="RN" required />
+              <FormInput type="text" name="referenceNumber" onChange={handleChange} value={input.referenceNumber} required />
               <FormLabel htmlFor="for">Proof (Please provide image link) </FormLabel>
-              <FormInput type="name" name="link" required />
+              <FormInput type="text" name="proof" onChange={handleChange} value={input.proof} required />
               {/* <FormInput type="file" onChange={fileSelectedHandler} name="link" required /> */}
              
 
             
               
-              <FormButton name="submit" type="submit" onClick={notify}>
+              <FormButton name="submit" type="submit" onClick={handleSend}>
                 Upload
               </FormButton>
               <ToastContainer />
