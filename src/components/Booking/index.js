@@ -53,7 +53,7 @@ const Booking = () => {
 
   const generateQrCode = async (text) => {
     try {
-          const response = await QRCode.toDataURL("curl http://localhost:5000/api/reservations/"+text);
+          const response = await QRCode.toDataURL(text);
           setImageUrl(response);
     }catch (error) {
       console.log(error);
