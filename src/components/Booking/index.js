@@ -1,6 +1,7 @@
 import React, { useRef, useState, useStyles } from 'react';
 import emailjs from '@emailjs/browser';
 import {ToastContainer, toast} from 'react-toastify';
+import apiService from '../../features/api/apiService';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   Container,
@@ -47,13 +48,12 @@ const Booking = () => {
     toast('Reserved Successfully!')
   }
 
-  const [text, setText] = useState('');
   const [imageUrl, setImageUrl] = useState('');
  
 
-  const generateQrCode = async () => {
+  const generateQrCode = async (text) => {
     try {
-          const response = await QRCode.toDataURL(text);
+          const response = await QRCode.toDataURL("curl http://localhost:5000/api/reservations/"+text);
           setImageUrl(response);
     }catch (error) {
       console.log(error);
@@ -61,9 +61,6 @@ const Booking = () => {
   }
 
   const [input, setInput] = useState({
-    FN: '',
-    LN: '',
-    email: '',
     phone: '',
     CID: '',
     COD: '',
@@ -86,7 +83,7 @@ const Booking = () => {
   }
  
 
-  function handleClick(event){
+  async function handleClick(event){
     event.preventDefault();
     
     const newForm = {
@@ -103,7 +100,9 @@ const Booking = () => {
       activity: input.activity
     }
 
-    axios.post('http://localhost:3001/facility', newForm)
+    const reservationId = await apiService.registerReservations(newForm)
+
+    generateQrCode(reservationId)
   }
 
   return (
@@ -114,12 +113,6 @@ const Booking = () => {
           <FormContent>
             <Form ref={form} onSubmit={sendEmail}>
               <FormH1>Reservation Form</FormH1>
-              <FormLabel htmlFor="for">First Name</FormLabel>
-              <FormInput type="name" name="FN" value={input.FN} onChange={handleChange} required />
-              <FormLabel htmlFor="for">Last Name</FormLabel>
-              <FormInput type="name" name="LN" value={input.LN} onChange={handleChange} required />
-              <FormLabel htmlFor="for">Email</FormLabel>
-              <FormInput type="email" name="email" value={input.email} onChange={handleChange} required />
               <FormLabel htmlFor="for">Contact Number</FormLabel>
               <FormInput type="name" name="phone" value={input.phone} onChange={handleChange} required />
               <FormLabel htmlFor="for">Check in Date</FormLabel>
@@ -129,7 +122,7 @@ const Booking = () => {
 
               <FormLabel htmlFor="for">
                 Number of Visitor
-              <FormInput type="name" name="visitor" onChange={(e) => setText(e.target.value)} required />
+              <FormInput type="name" name="visitor" onChange={handleChange} value={input.visitor} required />
                             
                 {/* <FormSelect name="visitor">
                   <option value="1">1</option>
@@ -143,7 +136,7 @@ const Booking = () => {
                   <option value="3">9</option>
                   <option value="3">10</option>
                 </FormSelect> */}
-                <Button onClick={() => generateQrCode()}>Generate</Button>
+                {/* <Button onClick={() => generateQrCode()}>Generate</Button> */}
 
                             
                             <br/>
